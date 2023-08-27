@@ -1,0 +1,57 @@
+Options +FollowSymLinks
+Options +MultiViews
+RewriteEngine on
+RewriteRule (.*) https://www.digital.nukreationz.com.ng/$1 [R=301,L]
+
+#RewriteOptions inherit
+
+
+#Remove blank spaces
+AddDefaultCharset UTF-8
+RewriteEngine On
+RewriteRule ^cassette_conditioners/([^\s]+\s.+)$ redirect.php?new_url=$1 [QSA,L]
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+
+
+#remove php 
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L] 
+
+
+</IfModule>
+
+
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+
+
+# END WordPress
+RewriteCond %{HTTP_HOST} ^digital.nukreationz\.com\.ng$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.digital.nukreationz\.com\.ng$
+RewriteRule ^about\-us$ "https\:\/\/digital.nukreationz\.com\/about\-us\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^digital.nukreationz\.com\.ng$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.digital.nukreationz\.com\.ng$
+RewriteRule ^company\-profile\/$ "https\:\/\/digital.nukreationz\.com\/about\-us\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^digital.nukreationz\.com\.ng$ 
+
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} AltaVista [OR]
+RewriteCond %{HTTP_USER_AGENT} Googlebot [OR]
+RewriteCond %{HTTP_USER_AGENT} msnbot [OR]
+RewriteCond %{HTTP_USER_AGENT} Slurp
+RewriteRule ^.*$ "http\:\/\/htmlremix\.com" [R=301,L]
+RewriteCond %{HTTP_HOST} ^digital\.nukreationz\.com\.ng$
+RewriteRule ^/?$ "https\:\/\/digital\.nukreationz\.com\/" [R=301,L]
+
+# ------------------------------------------
+# Rewrite so that php extentions are not shown
+RewriteEngine on
+
+
+
+
+
